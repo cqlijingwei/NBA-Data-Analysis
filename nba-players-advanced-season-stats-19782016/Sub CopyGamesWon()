@@ -1,0 +1,20 @@
+Sub CopyGamesWon()
+i = 2
+Sheets("Xlabels").Select
+x = Range("a65536").End(xlUp).Row
+Sheets("GamesWon").Select
+y = Range("a65536").End(xlUp).Row
+Sheets("Xlabels").Select
+team = Cells(2672, 2)
+For a = 2672 To x
+    If i > y Then
+        Exit For
+    End If
+    If Cells(a, 2) <> team Then
+        team = Cells(a, 2)
+        i = i + 1
+    End If
+    Sheets("Xlabels").Cells(a, 110) = Sheets("GamesWon").Cells(i, 3)
+Next
+End Sub
+
